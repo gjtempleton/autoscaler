@@ -44,17 +44,13 @@ jobs:
     needs:
       - changes
     runs-on: ubuntu-latest
-    container:
-      image: jnorwood/helm-docs:v1.3.0
-      volumes:
-        - charts:/helm-docs
     steps:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Run helm-docs
-        run: helm-docs
+        uses: docker://jnorwood/helm-docs:v1.3.0
       - name: Check for changes
-        run: git diff-index --quiet HEAD --
+        run: git diff --quiet charts/*/README.md
 
 name: Lint and Test Charts
 on: pull_request
