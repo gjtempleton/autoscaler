@@ -2,7 +2,10 @@
 
 Scales Kubernetes worker nodes within autoscaling groups.
 
+Testing non-templated-change - this should fail
 ## TL;DR:
+
+Testing
 
 ```console
 $ helm repo add autoscaler https://kubernetes.github.io/autoscaler
